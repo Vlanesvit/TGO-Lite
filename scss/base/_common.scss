@@ -1,0 +1,130 @@
+section {
+	position: relative;
+	margin: 175px 0px;
+
+	@include responsive-auto(margin-top, (175, 50), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(margin-bottom, (175, 50), (1439.98, 1169.98, 991.98));
+}
+
+// Text ========================================================================================================================================================
+h1 {
+	font-weight: 600;
+	font-size: 56px;
+	// line-height: 45px;
+	line-height: 80%;
+	letter-spacing: -0.01em;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 32px;
+	// line-height: 32px;
+	line-height: 100%;
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 24px;
+	// line-height: 24px;
+	line-height: 100%;
+	letter-spacing: -0.01em;
+}
+
+p {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+// Button ========================================================================================================================================================
+.rs-btn {
+	text-transform: none;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 10;
+	transition: ease-out 0.5s;
+
+	font-weight: 600;
+	font-size: 16px;
+	// line-height: 26px;
+	line-height: 160%;
+	color: #fff;
+	padding: 19px 40px;
+	background: #000;
+}
+
+.form {
+	width: 100%;
+
+	// .form__wrapper
+	&__wrapper {
+		position: relative;
+	}
+
+	// .form__block
+	&__block {
+	}
+
+	// .form__line
+	&__line {
+		width: 100%;
+		position: relative;
+		margin-bottom: 8px;
+	}
+
+	&__agreement {
+		margin-top: 24px;
+		font-weight: 400;
+		font-size: 13px;
+		// line-height: 16px;
+		line-height: 120%;
+		text-align: center;
+		color: #818181;
+
+		a {
+			text-decoration: underline;
+			text-decoration-skip-ink: none;
+
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	// .form__button
+	&__button {
+		width: 100%;
+		margin-top: 16px;
+
+		.rs-btn {
+			width: 100%;
+			white-space: nowrap;
+		}
+	}
+}
+
+.rs-input {
+	outline: none;
+	width: 100%;
+	transition: 0.3s ease 0s;
+	transition-property: border-color;
+	padding: 22.5px 0px;
+	background: transparent;
+	font-weight: 400;
+	font-size: 16px;
+	// line-height: 19px;
+	line-height: 120%;
+	color: var(--font-color);
+	border-color: var(--primary-color);
+
+	&::placeholder {
+		color: var(--font-color);
+	}
+}

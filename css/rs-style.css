@@ -1,0 +1,399 @@
+@font-face {
+	font-family: "TT Fors Trial";
+	src: url("../fonts/TTForsTrial-Regular.woff2") format("woff2"), url("../fonts/TTForsTrial-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "TT Fors Trial";
+	src: url("../fonts/TTForsTrial-Medium.woff2") format("woff2"), url("../fonts/TTForsTrial-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "TT Fors Trial";
+	src: url("../fonts/TTForsTrial-DemiBold.woff2") format("woff2"), url("../fonts/TTForsTrial-DemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--bg-color: #fff;
+	--font-color: #000;
+	--primary-color: #000;
+}
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	/* Non-Standard, But More Styling-Capable Properties */
+	/* Standardized Properties */
+}
+
+*::-webkit-scrollbar {
+	cursor: pointer;
+	width: 5px;
+	background: #f5f5f5;
+}
+
+*::-webkit-scrollbar-thumb {
+	cursor: pointer;
+	background: var(--primary-color);
+	-webkit-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+	* {
+		scrollbar-color: var(--primary-color) var(--bg-color);
+		scrollbar-width: thin;
+	}
+}
+
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
+html,
+body {
+	min-width: 320px;
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+}
+
+body {
+	color: var(--font-color);
+	line-height: 1;
+	font-family: "TT Fors Trial", sans-serif;
+	background: var(--bg-color);
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+input,
+button,
+textarea {
+	outline: none;
+	font-family: "TT Fors Trial", sans-serif;
+	font-size: inherit;
+}
+
+button {
+	cursor: pointer;
+	color: inherit;
+	background: transparent;
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+}
+
+button:active,
+button:focus {
+	outline: none !important;
+}
+
+button::-moz-focus-inner {
+	border: 0 !important;
+}
+
+a {
+	cursor: pointer;
+	color: inherit;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+a:link,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	display: inline-block;
+	max-width: 100%;
+	border: 0;
+	vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+html.lock {
+	overflow: hidden;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.wrapper>main {
+	-webkit-box-flex: 1;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	position: relative;
+}
+
+.wrapper>* {
+	min-width: 0;
+}
+
+[class*=__container] {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;
+	padding-left: 65px;
+	padding-right: 65px;
+}
+
+@media (max-width: 767.98px) {
+	[class*=__container] {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.dont-break-out {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+section {
+	position: relative;
+	margin: 175px 0px;
+}
+
+@media (max-width: 1439.98px) {
+	section {
+		margin-top: 133.3333333333px;
+	}
+}
+
+@media (max-width: 1169.98px) {
+	section {
+		margin-top: 91.6666666667px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	section {
+		margin-top: 50px;
+	}
+}
+
+@media (max-width: 1439.98px) {
+	section {
+		margin-bottom: 133.3333333333px;
+	}
+}
+
+@media (max-width: 1169.98px) {
+	section {
+		margin-bottom: 91.6666666667px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	section {
+		margin-bottom: 50px;
+	}
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 56px;
+	line-height: 80%;
+	letter-spacing: -0.01em;
+}
+
+h2 {
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 100%;
+	letter-spacing: -0.01em;
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: -0.01em;
+}
+
+p {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.rs-btn {
+	text-transform: none;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 10;
+	-webkit-transition: ease-out 0.5s;
+	transition: ease-out 0.5s;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 160%;
+	color: #fff;
+	padding: 19px 40px;
+	background: #000;
+}
+
+.form {
+	width: 100%;
+}
+
+.form__wrapper {
+	position: relative;
+}
+
+.form__line {
+	width: 100%;
+	position: relative;
+	margin-bottom: 8px;
+}
+
+.form__agreement {
+	margin-top: 24px;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 120%;
+	text-align: center;
+	color: #818181;
+}
+
+.form__agreement a {
+	text-decoration: underline;
+	-webkit-text-decoration-skip-ink: none;
+	text-decoration-skip-ink: none;
+}
+
+@media (any-hover: hover) {
+	.form__agreement a:hover {
+		text-decoration: none;
+	}
+}
+
+.form__button {
+	width: 100%;
+	margin-top: 16px;
+}
+
+.form__button .rs-btn {
+	width: 100%;
+	white-space: nowrap;
+}
+
+.rs-input {
+	outline: none;
+	width: 100%;
+	-webkit-transition: 0.3s ease 0s;
+	transition: 0.3s ease 0s;
+	-webkit-transition-property: border-color;
+	transition-property: border-color;
+	padding: 22.5px 0px;
+	background: transparent;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: var(--font-color);
+	border-color: var(--primary-color);
+}
+
+.rs-input::-webkit-input-placeholder {
+	color: var(--font-color);
+}
+
+.rs-input::-moz-placeholder {
+	color: var(--font-color);
+}
+
+.rs-input:-ms-input-placeholder {
+	color: var(--font-color);
+}
+
+.rs-input::-ms-input-placeholder {
+	color: var(--font-color);
+}
+
+.rs-input::placeholder {
+	color: var(--font-color);
+}
