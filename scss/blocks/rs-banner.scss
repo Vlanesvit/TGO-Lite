@@ -1,0 +1,238 @@
+@import "../base/_mixin";
+
+.rs-banner {
+	margin: 0;
+	position: relative;
+	min-height: 600px;
+
+	// .rs-banner__bg
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// .rs-banner__container
+	&__container {
+		max-width: 1920px;
+		padding-right: 0px;
+		padding-left: 0px;
+		height: 100%;
+	}
+
+	// .rs-banner__content
+	&__content {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+
+	// .rs-banner__body
+	&__body {
+		width: 100%;
+		height: 100%;
+		max-width: 768px;
+		position: relative;
+
+		@media (max-width: 991.98px) {
+			max-width: 100%;
+		}
+
+		&::after {
+			content: "";
+			width: 50%;
+			height: 49.1%;
+			background-color: #fff;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+
+			@media (max-width: 991.98px) {
+				height: 187px;
+			}
+		}
+	}
+
+	// .rs-banner__list
+	&__list {
+		display: grid;
+		width: 100%;
+		grid-template-columns: repeat(2, 1fr);
+
+		li {
+			display: flex;
+			align-items: stretch;
+			font-weight: 400;
+			font-size: 32px;
+			line-height: 99%;
+			letter-spacing: -0.01em;
+			position: relative;
+			z-index: 1;
+			transition: color 0.5s ease-out;
+
+			@include responsive-auto(font-size, (32, 16), (1439.98, 1169.98, 991.98));
+
+			a {
+				width: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			&:first-child {
+				grid-column: 1 / span 2;
+				height: 373px;
+				align-items: flex-end;
+				font-weight: 600;
+				font-size: 56px;
+				line-height: 80%;
+				letter-spacing: -0.01em;
+
+				@include responsive-auto(font-size, (56, 30), (1439.98, 1169.98, 991.98));
+
+				@media (max-width: 991.98px) {
+					height: 447px;
+				}
+
+				a {
+					height: 100%;
+					display: flex;
+					align-items: flex-end;
+					padding: 34px 33px;
+
+					@media (max-width: 991.98px) {
+						padding: 28px 16px;
+					}
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					right: 0;
+					height: 100%;
+					width: 0;
+					background-color: #000;
+					display: block;
+					z-index: -1;
+					transition: width 0.5s ease-out;
+				}
+
+				@media (any-hover: hover) {
+					&:hover {
+						color: #fff;
+
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				grid-row: 2 / span 3;
+				height: 360px;
+				align-items: flex-end;
+				background: #efefef;
+				font-weight: 600;
+				font-size: 71px;
+				line-height: 80%;
+				letter-spacing: -0.01em;
+				text-transform: uppercase;
+
+				@include responsive-auto(font-size, (71, 30), (1439.98, 1169.98, 991.98));
+
+				@media (max-width: 991.98px) {
+					height: 187px;
+				}
+
+				a {
+					padding: 33px 34px;
+					height: 100%;
+					display: flex;
+					align-items: flex-end;
+
+					@media (max-width: 991.98px) {
+						padding: 20px;
+					}
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 0;
+					background-color: #000;
+					display: block;
+					z-index: -1;
+					transition: width 0.5s ease-out;
+				}
+
+				@media (any-hover: hover) {
+					&:hover {
+						color: #fff;
+
+						&::after {
+							width: 100%;
+						}
+					}
+				}
+			}
+
+			&:nth-child(3) a {
+				padding: 44px 39px 21px;
+
+				@media (max-width: 991.98px) {
+					padding: 20px;
+				}
+			}
+
+			&:nth-child(4) a {
+				padding: 21px 39px;
+
+				@media (max-width: 991.98px) {
+					padding: 20px;
+				}
+			}
+
+			&:nth-child(3),
+			&:nth-child(4) {
+				span {
+					padding-bottom: 8px;
+					display: block;
+					position: relative;
+
+					&::after {
+						content: "";
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 31px;
+						height: 1px;
+						background-color: #000;
+						transition: width 0.5s ease-out;
+					}
+				}
+
+				@media (any-hover: hover) {
+					&:hover span::after {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

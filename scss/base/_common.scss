@@ -9,31 +9,47 @@ section {
 // Text ========================================================================================================================================================
 h1 {
 	font-weight: 600;
-	font-size: 56px;
-	// line-height: 45px;
+	font-size: 71px;
+	// line-height: 57px;
 	line-height: 80%;
 	letter-spacing: -0.01em;
 }
 
 h2 {
 	font-weight: 600;
+	font-size: 56px;
+	// line-height: 45px;
+	line-height: 80%;
+	letter-spacing: -0.01em;
+
+	@include responsive-auto(font-size, (56, 30), (1439.98, 1169.98, 991.98));
+}
+
+h3 {
+	font-weight: 600;
 	font-size: 32px;
 	// line-height: 32px;
 	line-height: 100%;
 	letter-spacing: -0.01em;
+
+	@include responsive-auto(font-size, (32, 24), (1439.98, 1169.98, 991.98));
 }
 
-h3 {
+h4 {
 	font-weight: 600;
 	font-size: 24px;
 	// line-height: 24px;
 	line-height: 100%;
 	letter-spacing: -0.01em;
+
+	@include responsive-auto(font-size, (24, 16), (1439.98, 1169.98, 991.98));
 }
 
 p {
 	font-weight: 400;
 	font-size: 18px;
+
+	@include responsive-auto(font-size, (18, 14), (1439.98, 1169.98, 991.98));
 }
 
 // Button ========================================================================================================================================================
@@ -56,6 +72,16 @@ p {
 	color: #fff;
 	padding: 19px 40px;
 	background: #000;
+	border: 1px solid #000;
+
+	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: #000;
+			background-color: transparent;
+		}
+	}
 }
 
 .form {
@@ -78,7 +104,7 @@ p {
 	}
 
 	&__agreement {
-		margin-top: 24px;
+		margin-top: 20px;
 		font-weight: 400;
 		font-size: 13px;
 		// line-height: 16px;
@@ -95,6 +121,11 @@ p {
 					text-decoration: none;
 				}
 			}
+		}
+
+		h4 {
+			margin-bottom: 24px;
+			color: #000;
 		}
 	}
 
@@ -122,9 +153,16 @@ p {
 	// line-height: 19px;
 	line-height: 120%;
 	color: var(--font-color);
-	border-color: var(--primary-color);
+	border-bottom: 1px solid var(--primary-color);
+
+	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
 
 	&::placeholder {
 		color: var(--font-color);
 	}
+}
+
+textarea {
+	min-height: 213px;
+	resize: vertical;
 }

@@ -1,0 +1,30 @@
+.rs-form__container {
+  max-width: 880px;
+  padding-left: 65px;
+  padding-right: 65px;
+}
+@media (max-width: 1439.98px) {
+  .rs-form__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-form__container {
+    max-width: 415px;
+  }
+}
+.rs-form__wrapper {
+  text-align: center;
+}
+.rs-form__wrapper p {
+  margin-top: 8px;
+}
+.rs-form__wrapper h4 {
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+}
+.rs-form__form form {
+  margin-top: 30px;
+}

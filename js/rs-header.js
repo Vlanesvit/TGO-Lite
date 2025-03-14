@@ -22,87 +22,32 @@ function menuFunction() {
 	// Меню
 	function menuInit() {
 		menus.forEach(menu => {
-			// Все пункты
-			const menuItem = menu.querySelectorAll('.menu__body .menu__list li');
+			const menuLinks = document.querySelectorAll("[data-menu]");
+			const dropdownBlock = document.querySelector(".rs-header__dropdown");
+			const dropdownItems = dropdownBlock.querySelectorAll(".rs-header__dropdown_item");
+			const dropdownClose = dropdownBlock.querySelector(".rs-header__dropdown_close");
 
-			// Все пункты с выпадающим меню
-			const menuItemDropdowns = menu.querySelectorAll('.menu__list .menu__dropdown');
-			const menuItemDropdownsMenu = menu.querySelectorAll('.menu__list .menu__dropdown_list');
+			menuLinks.forEach(link => {
+				link.addEventListener("click", (e) => {
+					e.preventDefault();
 
-			// 0-ой уровень
-			const menuItemDropdownsNull = menu.querySelectorAll('.menu__list > .menu__dropdown');
-			const menuItemDropdownsMenuNull = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list');
+					dropdownBlock.classList.add('_show');
 
-			// 1-ый уровень
-			const menuItemDropdownsFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuFirst = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
+					const menuValue = link.getAttribute("data-menu");
 
-			// 2-ой уровень
-			const menuItemDropdownsTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuTwo = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
+					// Скрываем все выпадающие меню
+					dropdownItems.forEach(item => item.classList.remove('_show'));
 
-			// 3-ий уровень
-			const menuItemDropdownsThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown  > .menu__dropdown_list > .menu__dropdown');
-			const menuItemDropdownsMenuThree = menu.querySelectorAll('.menu__list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list > .menu__dropdown > .menu__dropdown_list');
-
-			// Добавляем иконки в пункты с выпадающим меню
-			menuItemDropdowns.forEach(item => {
-				let icon = document.createElement('button');
-				icon.setAttribute('type', 'button');
-				icon.classList.add('menu__dropdown_arrow')
-				item.prepend(icon);
+					// Ищем нужное меню и показываем
+					const targetDropdown = document.querySelector(`.rs-header__dropdown_item[data-menu="${menuValue}"]`);
+					if (targetDropdown) {
+						targetDropdown.classList.add('_show');
+					}
+				});
 			});
 
-			// Функция для отдельных уровней меню, чтобы открывался только один пункт, а открытые закрывались, кроме тех, кто выше уровнем
-			function openLvlMenu(li, ul) {
-				li.forEach(item => {
-					const menuItemList = item.querySelector('.menu__dropdown_list');
-					const menuItemIcons = item.querySelector('.menu__dropdown_arrow');
-
-					// Раскрываем меню при клике на иконку
-					menuItemIcons.addEventListener('click', (e) => {
-						e.preventDefault();
-						_slideToggle(menuItemList, 500);
-						ul.forEach(menu => {
-							if (!menu.hasAttribute('hidden')) {
-								_slideUp(menu, 500);
-							}
-						});
-
-						// Проходимся по всем пунктам и ищем активные классы, убираем их и добавляем активный класс кликнутому пункту
-						if (!menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-							li.forEach(itemDrop => {
-								if (itemDrop.classList.contains('_open-menu')) {
-									itemDrop.classList.remove('_open-menu')
-								}
-							});
-							menuItemIcons.closest('.menu__dropdown').classList.add('_open-menu');
-						} else if (menuItemIcons.closest('.menu__dropdown').classList.contains('_open-menu')) {
-							menuItemIcons.closest('.menu__dropdown').classList.remove('_open-menu');
-						}
-					});
-				});
-			}
-
-			// Пункты 0-го уровня меню
-			openLvlMenu(menuItemDropdownsNull, menuItemDropdownsMenuNull)
-			// Пункты 1-го уровня меню
-			openLvlMenu(menuItemDropdownsFirst, menuItemDropdownsMenuFirst)
-			// Пункты 2-го уровня меню
-			openLvlMenu(menuItemDropdownsThree, menuItemDropdownsMenuTwo)
-			// Пункты 3-го уровня меню
-			openLvlMenu(menuItemDropdownsTwo, menuItemDropdownsMenuThree)
-
-			// При клике на бургер убираем открые меню и активные класс
-			document.addEventListener("click", function (e) {
-				if (e.target.closest('.menu__icon')) {
-					menuItemDropdownsMenu.forEach(menu => {
-						_slideUp(menu, 500);
-					});
-					menuItemDropdowns.forEach(item => {
-						item.classList.remove('_open-menu');
-					});
-				}
+			dropdownClose.addEventListener("click", () => {
+				dropdownBlock.classList.remove('_show');
 			});
 		});
 	}
@@ -210,26 +155,22 @@ Header при скролле
 
 function headerScroll() {
 	const header = document.querySelector('.rs-header');
-	const headerTag = document.querySelector('header');
 	let lastScrollTop = 0;
 
 	function headerClassAdd() {
-		header.classList.toggle('_header-scroll', window.scrollY > 0)
+		header.classList.toggle('_header-scroll', window.scrollY > 500)
 		let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-		// Проверка на присутствие класса для бургер-меню. Если он есть, то шапка не скрывается
-		if (document.documentElement.classList.contains("menu-open")) {
-			header.style.transform = "0px";
-		}
-		else {
+		if (window.scrollY > 500) {
 			// Скрытие шапки
 			if (scrollTop > lastScrollTop) {
-				header.style.transform = `translateY(-${header.clientHeight + 1}px)`;
 				header.classList.remove('_header-show');
 			} else {
-				header.style.transform = "translateY(0px)";
 				header.classList.add('_header-show');
 			}
+		} else {
+			header.classList.remove('_header-show');
+
 		}
 		lastScrollTop = scrollTop;
 	}
@@ -239,17 +180,9 @@ function headerScroll() {
 	})
 	window.addEventListener('load', function () {
 		headerClassAdd();
-
-		if (!header.classList.contains('_header-transparent')) {
-			headerTag.style.height = header.clientHeight + 'px';
-		}
 	})
 	window.addEventListener('resize', function () {
 		headerClassAdd();
-
-		if (!header.classList.contains('_header-transparent')) {
-			headerTag.style.height = header.clientHeight + 'px';
-		}
 	})
 }
 headerScroll()
