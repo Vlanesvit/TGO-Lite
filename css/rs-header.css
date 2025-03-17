@@ -79,7 +79,7 @@
 @media (min-width: 991.98px) {
   .rs-header__menu {
     height: 113px;
-    background: #fff;
+    background: #f5f5f5;
   }
 }
 @media (min-width: 991.98px) and (max-width: 1439.98px) {
@@ -438,6 +438,10 @@
             flex-direction: column;
   }
 }
+.rs-header__menu .menu__actions ul li {
+  -webkit-transition: color 0.5s ease-out 0s;
+  transition: color 0.5s ease-out 0s;
+}
 .rs-header__menu .menu__actions ul li a {
   padding: 0px;
 }
@@ -466,6 +470,7 @@
   transition: all 0.3s ease 0s, -webkit-transform 0.6s ease-out;
   transition: transform 0.6s ease-out, all 0.3s ease 0s;
   transition: transform 0.6s ease-out, all 0.3s ease 0s, -webkit-transform 0.6s ease-out;
+  background-color: #fff;
 }
 ._header-scroll .rs-header__scroll {
   opacity: 1;
