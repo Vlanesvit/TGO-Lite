@@ -54,6 +54,14 @@ h5 {
 	@include responsive-auto(font-size, (20, 16), (1439.98, 1169.98, 991.98));
 }
 
+h6 {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 110%;
+
+	@include responsive-auto(font-size, (18, 14), (1439.98, 1169.98, 991.98));
+}
+
 p {
 	font-weight: 400;
 	font-size: 18px;

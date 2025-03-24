@@ -351,6 +351,27 @@ h5 {
   }
 }
 
+h6 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 110%;
+}
+@media (max-width: 1439.98px) {
+  h6 {
+    font-size: 16.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  h6 {
+    font-size: 15.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  h6 {
+    font-size: 14px;
+  }
+}
+
 p {
   font-weight: 400;
   font-size: 18px;

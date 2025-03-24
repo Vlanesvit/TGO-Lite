@@ -6,6 +6,14 @@
 	@include responsive-auto(margin-top, (163, 50), (1439.98, 1169.98, 991.98));
 	@include responsive-auto(margin-bottom, (163, 50), (1439.98, 1169.98, 991.98));
 
+	&.rs-inner-page {
+		margin-top: 65px;
+		margin-bottom: 90px;
+
+		@include responsive-auto(margin-top, (65, 50), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(margin-bottom, (90, 50), (1439.98, 1169.98, 991.98));
+	}
+
 	// .rs-text-block__container
 	&__container {
 	}
@@ -43,6 +51,26 @@
 			@include responsive-auto(font-size, (30, 24), (1439.98, 1169.98, 991.98));
 			@include responsive-auto(margin-top, (40, 20), (1439.98, 1169.98, 991.98));
 		}
+
+		ul {
+			margin-top: 30px;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 140%;
+
+			@include responsive-auto(font-size, (18, 14), (1439.98, 1169.98, 991.98));
+		}
+	}
+
+	&__block {
+		@media (min-width: 991.98px) {
+			grid-column: 2 span;
+		}
+
+		& > p {
+			margin-top: 100px;
+			line-height: 140%;
+		}
 	}
 
 	// .rs-text-block__items
@@ -50,10 +78,6 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 64px;
-
-		@media (min-width: 991.98px) {
-			grid-column: 2 span;
-		}
 
 		@media (max-width: 1439.98px) {
 			gap: 30px;
@@ -70,6 +94,10 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+
+		.rs-inner-page & {
+			justify-content: unset;
+		}
 	}
 
 	// .rs-text-block__img
@@ -87,10 +115,7 @@
 		font-weight: 400;
 		font-size: 18px;
 		color: #000;
-
-		@media (max-width: 991.98px) {
-			margin-top: 20px;
-		}
+		margin-top: 20px;
 
 		h6 {
 			margin-bottom: 10px;

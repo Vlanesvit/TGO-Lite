@@ -31,6 +31,40 @@
     margin-bottom: 50px;
   }
 }
+.rs-text-block.rs-inner-page {
+  margin-top: 65px;
+  margin-bottom: 90px;
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-top: 55px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-bottom: 76.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-bottom: 63.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block.rs-inner-page {
+    margin-bottom: 50px;
+  }
+}
 @media (min-width: 991.98px) {
   .rs-text-block__wrapper {
     display: grid;
@@ -88,15 +122,40 @@
     margin-top: 20px;
   }
 }
+.rs-text-block__title ul {
+  margin-top: 30px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__title ul {
+    font-size: 16.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__title ul {
+    font-size: 15.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__title ul {
+    font-size: 14px;
+  }
+}
+@media (min-width: 991.98px) {
+  .rs-text-block__block {
+    grid-column: 2 span;
+  }
+}
+.rs-text-block__block > p {
+  margin-top: 100px;
+  line-height: 140%;
+}
 .rs-text-block__items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 64px;
-}
-@media (min-width: 991.98px) {
-  .rs-text-block__items {
-    grid-column: 2 span;
-  }
 }
 @media (max-width: 1439.98px) {
   .rs-text-block__items {
@@ -121,6 +180,11 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.rs-inner-page .rs-text-block__item {
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+}
 .rs-text-block__img {
   width: 100%;
 }
@@ -133,11 +197,7 @@
   font-weight: 400;
   font-size: 18px;
   color: #000;
-}
-@media (max-width: 991.98px) {
-  .rs-text-block__desc {
-    margin-top: 20px;
-  }
+  margin-top: 20px;
 }
 .rs-text-block__desc h6 {
   margin-bottom: 10px;
