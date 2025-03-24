@@ -2,6 +2,7 @@
   margin: 0;
   position: relative;
   min-height: 600px;
+  overflow: hidden;
 }
 .rs-banner__bg {
   position: absolute;
