@@ -540,7 +540,7 @@
 
 			@media (any-hover: hover) {
 				&:hover {
-					.rs-sections__img {
+					.rs-product-block__grid_img img {
 						filter: grayscale(0);
 					}
 				}
