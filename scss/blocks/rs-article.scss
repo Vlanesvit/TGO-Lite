@@ -30,13 +30,22 @@
 	// .rs-article__head
 	&__head {
 		padding-bottom: 40px;
-		border-bottom: 1px solid #000;
 
 		@include responsive-auto(padding-bottom, (40, 20), (1439.98, 1169.98, 991.98));
 
 		h2 {
 			text-transform: lowercase;
 			line-height: 100%;
+		}
+
+		&:has(.rs-article__back) {
+			border-bottom: 1px solid #000;
+		}
+
+		p {
+			margin-top: 20px;
+
+			@include responsive-auto(margin-top, (20, 10), (1439.98, 1169.98, 991.98));
 		}
 	}
 
@@ -135,6 +144,118 @@
 		@media (max-width: 539.98px) {
 			flex-direction: column;
 			gap: 20px;
+		}
+	}
+
+	&__part {
+		&:not(:last-child) {
+			margin-bottom: 80px;
+
+			@include responsive-auto(margin-bottom, (80, 30), (1439.98, 1169.98, 991.98));
+		}
+
+		&_item {
+			h6 {
+				margin-top: 0px;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 40px;
+
+				@include responsive-auto(margin-bottom, (40, 20), (1439.98, 1169.98, 991.98));
+			}
+		}
+
+		h4 {
+			text-transform: uppercase;
+			margin-bottom: 17px;
+
+			@include responsive-auto(margin-bottom, (17, 10), (1439.98, 1169.98, 991.98));
+		}
+
+		ul {
+			margin-top: 17px;
+
+			@include responsive-auto(margin-top, (17, 10), (1439.98, 1169.98, 991.98));
+
+			li {
+				font-weight: 600;
+				font-size: 18px;
+				line-height: 120%;
+
+				@include responsive-auto(font-size, (18, 14), (1439.98, 1169.98, 991.98));
+
+				&:not(:last-child) {
+					margin-bottom: 17px;
+
+					@include responsive-auto(margin-bottom, (17, 10), (1439.98, 1169.98, 991.98));
+				}
+
+				span {
+					display: block;
+					font-weight: 400;
+					margin-bottom: 5px;
+				}
+
+				a {
+					display: block;
+					line-height: 180%;
+
+					&[href^="mailto"] {
+						text-decoration: underline;
+						text-decoration-skip-ink: none;
+						text-underline-offset: 7px;
+
+						@media (any-hover: hover) {
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.map {
+			height: 364px;
+		}
+
+		table {
+			table-layout: fixed;
+			width: 100%;
+			border-spacing: unset;
+			border-collapse: unset;
+
+			tr {
+				&:first-child {
+					td {
+						border-top: 1px solid #e1e1e1;
+					}
+				}
+
+				td {
+					padding: 10px 20px;
+					font-weight: 400;
+					font-size: 18px;
+					// line-height: 22px;
+					line-height: 120%;
+					letter-spacing: -0.01em;
+					color: #818181;
+					border-bottom: 1px solid #e1e1e1;
+
+					@include responsive-auto(font-size, (18, 14), (1439.98, 1169.98, 991.98));
+					@include responsive-auto(padding-left, (20, 10), (1439.98, 1169.98, 991.98));
+					@include responsive-auto(padding-right, (20, 10), (1439.98, 1169.98, 991.98));
+
+					&:last-child {
+						color: #000;
+					}
+
+					@media (max-width: 767.98px) {
+						display: block;
+					}
+				}
+			}
 		}
 	}
 }

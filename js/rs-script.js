@@ -369,6 +369,62 @@ if (document.querySelector('[data-spollers]')) {
 	spollers()
 }
 
+// Проверка, загружен ли API Yandex Maps
+function isYandexMapsLoaded() {
+	return typeof ymaps !== "undefined" && typeof ymaps.ready === "function";
+}
+
+// Функция инициализации карты
+function init() {
+	if (!isYandexMapsLoaded()) {
+		// console.error("Ошибка: Yandex Maps API не загружен.");
+		return;
+	}
+
+	const mapElements = document.querySelectorAll('.map');
+	if (!mapElements.length) return;
+
+	ymaps.ready(() => {
+		mapElements.forEach(mapElement => {
+			let map = new ymaps.Map(mapElement, {
+				controls: [],
+				center: branchData[0]?.location || [55.751574, 37.573856], // Координаты по умолчанию
+				zoom: 15
+			}, {
+				suppressMapOpenBlock: true,
+				balloonMaxWidth: 200,
+				searchControlProvider: 'yandex#search'
+			});
+
+			let pinsCollection = new ymaps.GeoObjectCollection({}, {
+				preset: 'islands#blueDotIcon',
+				draggable: false
+			});
+
+			branchData.forEach(branch => {
+				let placemark = new ymaps.Placemark(branch.location, {
+					balloonContentHeader: branch.address,
+					hintContent: branch.address
+				});
+
+				pinsCollection.add(placemark);
+			});
+
+			map.geoObjects.add(pinsCollection);
+
+			map.events.add('balloonopen', () => map.hint.close());
+			map.events.add('click', e => e.get('target').balloon.close());
+		});
+	});
+}
+
+// Проверяем инициализацию API перед вызовом ymaps.ready()
+if (isYandexMapsLoaded()) {
+	ymaps.ready(init);
+} else {
+	// console.error("Ошибка: Yandex Maps API не найден. Проверьте подключение скрипта.");
+}
+
 /* ====================================
 Добавить картинкам draggable="false"
 ==================================== */
