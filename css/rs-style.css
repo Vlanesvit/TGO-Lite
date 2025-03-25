@@ -1179,11 +1179,7 @@ textarea {
       -ms-flex-align: center;
           align-items: center;
 }
-.pagging__list li {
-  border-top: 1px solid #e1e1e1;
-  border-right: 1px solid #e1e1e1;
-}
-.pagging__list li:not(:first-child), .pagging__list li:not(:last-child) {
+.pagging__list li:not(:last-child) .pagging__item, .pagging__list li:not(:last-child) .pagging__more {
   border-right: 1px solid #e1e1e1;
 }
 .pagging__item, .pagging__more {
@@ -1205,6 +1201,8 @@ textarea {
   background-color: transparent;
   -webkit-transition: ease-out 0.5s;
   transition: ease-out 0.5s;
+  border-bottom: 1px solid #e1e1e1;
+  border-top: 1px solid #e1e1e1;
 }
 @media (max-width: 1439.98px) {
   .pagging__item, .pagging__more {

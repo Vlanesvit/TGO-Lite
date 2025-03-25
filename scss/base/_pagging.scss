@@ -54,12 +54,14 @@
 		align-items: center;
 
 		li {
-			border-top: 1px solid #e1e1e1;
-			border-right: 1px solid #e1e1e1;
-
-			&:not(:first-child),
 			&:not(:last-child) {
-				border-right: 1px solid #e1e1e1;
+				.pagging {
+					// .pagging__item
+					&__item,
+					&__more {
+						border-right: 1px solid #e1e1e1;
+					}
+				}
 			}
 		}
 	}
@@ -79,6 +81,8 @@
 		color: #000;
 		background-color: transparent;
 		transition: ease-out 0.5s;
+		border-bottom: 1px solid #e1e1e1;
+		border-top: 1px solid #e1e1e1;
 
 		@include responsive-auto(width, (64, 40), (1439.98, 1169.98, 991.98));
 		@include responsive-auto(height, (64, 40), (1439.98, 1169.98, 991.98));
