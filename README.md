@@ -11,3 +11,6 @@
 9. [Страница статьи/новости/мероприятия](https://vlanesvit.github.io/TGO-Lite/article-page.html)
 10. [Проекты](https://vlanesvit.github.io/TGO-Lite/project.html)
 11. [Страница проекта](https://vlanesvit.github.io/TGO-Lite/project-page.html)
+12. [Доставка](https://vlanesvit.github.io/TGO-Lite/delivery.html)
+13. [Оплата](https://vlanesvit.github.io/TGO-Lite/payment.html)
+14. [Контакты](https://vlanesvit.github.io/TGO-Lite/contact.html)
